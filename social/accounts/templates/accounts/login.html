@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load bootstrap4 %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+  <div class="container">
+    <h1>Log in</h1>
+    <form method="post">
+      {% csrf_token %}
+      {% bootstrap_form form %}
+      <input type="submit" class="btn btn-success" value="Log in">
+    </form>
+    <p><a href="#">Forgot your password?</a></p>
+
+  </div>
+
+
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load bootstrap4 %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+  <div class="container">
+    <h1>Sign Up</h1>
+    <form enctype="multipart/form-data" class="regform" method="post">
+    {% csrf_token %}
+      <div class="row">
+        <div class="col-lg-6 col-sm-12">
+          {{ auth_form.username|as_crispy_field }}
+        </div>
+        <div class="col-lg-6 col-sm-12">
+          {{ auth_form.email|as_crispy_field }}
+        </div>
+      </div>
+      <div class="">
+        {{ auth_form.password1|as_crispy_field }}
+        {{ auth_form.password2|as_crispy_field }}
+        {{ auth_form.botcatcher }}
+      </div>
+      <div class="">
+        {{ profile_form.profile_pic|as_crispy_field }}
+      </div>
+
+      <input type="submit" class="btn btn-success" value="Sign Up">
+    </form>
+
+  </div>
+
+
+{% endblock %}

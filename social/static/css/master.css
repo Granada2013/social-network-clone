@@ -1,0 +1,45 @@
+.montserrat{
+  font-family: 'Montserrat', sans-serif;
+
+}
+
+.space{
+  font-family: 'Space Mono', monospace;
+
+}
+
+body{
+  font-family: 'Montserrat', sans-serif;
+
+}
+
+
+/* NAVBAR */
+.navbar{
+  background-color: #27042b;
+  margin-bottom: 4%;
+}
+
+.bigbrand{
+  font-size: 1.8em;
+}
+
+.nav-link{
+  font-size: 1.2em;
+  margin-right: 15px;
+}
+
+.btn-new-post{
+  background-color: #090a94;
+  color: white;
+  font-size: 1.2em;
+  margin-right: 15px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+
+/* SIGNUP FORM */
+.regform{
+  width: 50% !important;
+}
