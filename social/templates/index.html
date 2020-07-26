@@ -1,7 +1,21 @@
 {% extends 'base.html' %}
+{% load bootstrap4 %}
+{% load crispy_forms_tags %}
+
 
 {% block content %}
-  <h1>Welcome to Space!</h1>
-  <h1>Stay Social!</h1>
-  {{ user.username }}
+  <h1 class="overpass mb-4">Welcome to Social Network!</h1>
+
+  <div class="col-md-4 pl-0">
+    <form method="post" class="regform">
+      {% csrf_token %}
+      {% bootstrap_form form %}
+      <input type="submit" class="btn btn-main-action" value="Log in">
+    </form>
+    <p><a href="#">Forgot your password?</a></p>
+  </div>
+
+
+
+
 {% endblock %}

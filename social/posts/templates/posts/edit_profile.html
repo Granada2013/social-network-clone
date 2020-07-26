@@ -1,0 +1,18 @@
+{% extends "posts/post_base.html" %}
+{% load crispy_forms_tags %}
+
+{% block post_content %}
+
+<h1 class="overpass">Edit profile</h1>
+<div class="col-md-6 pl-0">
+  <form class="regform" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{form.bio|as_crispy_field}}
+    {{form.profile_pic|as_crispy_field}}
+    <input type="submit" class="btn btn-main-action" value="Save profile">
+  </form>
+</div>
+
+
+
+{% endblock %}

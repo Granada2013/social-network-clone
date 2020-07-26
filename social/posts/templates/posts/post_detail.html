@@ -1,0 +1,18 @@
+{% extends "posts/post_base.html" %}
+
+{% block post_content %}
+  <div class="col-md-8">
+    {% include "posts/_post.html" %}
+  </div></div>
+
+    {% if post.user == user and user.is_authenticated %}
+
+    <a href="{% url 'posts:delete_post' username=post.user.username pk=post.pk %}"
+      class="btn btn-danger"> <span class="fas fa-times icon"></span> Delete</a>
+    {% endif %}
+  </div>
+
+
+
+
+{% endblock %}

@@ -12,7 +12,10 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 
 import os
 
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
+
+
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 TEMPLATE_DIR = os.path.join(BASE_DIR, 'templates')
 MEDIA_DIR = os.path.join(BASE_DIR, 'media')
@@ -23,6 +26,7 @@ MEDIA_DIR = os.path.join(BASE_DIR, 'media')
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'z!80+d#=r-+&)$yr^k01dev-z*%rk*)s^upau2mldxni=i850r'
+
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -42,6 +46,8 @@ INSTALLED_APPS = [
     'crispy_forms',
     'bootstrap4',
     'accounts',
+    'groups',
+    'posts',
 ]
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
@@ -137,5 +143,5 @@ MEDIA_ROOT = MEDIA_DIR
 
 
 # Login Logout redirect for LoginView, LogoutView
-LOGIN_REDIRECT_URL = 'test'
-LOGOUT_REDIRECT_URL = 'thankyou'
+LOGIN_REDIRECT_URL = 'groups:all'
+LOGOUT_REDIRECT_URL = 'home'

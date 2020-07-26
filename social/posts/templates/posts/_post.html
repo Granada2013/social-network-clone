@@ -1,0 +1,15 @@
+  <div class="post-body pt-1 mb-4">
+    <span class="far fa-comment-alt"></span>
+      <a class="ml-2 mini" href="{% url 'posts:user_profile' username=post.user.username %}">
+        @{{post.user.username}}
+      </a>
+    <h5 class="text-justify">{{post.message_html|safe}}</h5>
+
+
+    <div class="d-flex">
+
+      <p class="mr-4 mini">
+        <a href="{% url 'posts:single' username=post.user.username pk=post.pk %}">
+          {{post.created_at}}
+        </a>
+      </p>

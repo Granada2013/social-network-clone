@@ -11,10 +11,11 @@ class User(AuthUser, PermissionsMixin):
 
 
 class UserProfile(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
-    profile_pic = models.ImageField(blank=True, upload_to='accounts')
+    user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='profile')
+    profile_pic = models.ImageField(blank=True, upload_to='accounts', editable=True)
+    bio = models.TextField(max_length=144, blank=True)
 
     def __str__(self):
         return f'@{self.user.username}'
 
-
+    

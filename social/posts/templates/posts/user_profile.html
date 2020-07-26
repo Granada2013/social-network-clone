@@ -1,0 +1,44 @@
+{% extends "posts/post_base.html" %}
+{% load static %}
+
+
+{% block prepost %}
+<div class="row">
+  <div class="col-md-3 profile-box">
+    <div class="profile-pic-box">
+      {% if post_user.profile.profile_pic %}
+        <img src="{{ post_user.profile.profile_pic.url }}" alt="">
+      {% else %}
+        <img src="{% static 'images/default-avatar.png' %}">
+      {% endif %}
+    </div>
+
+    <div class="profile-info-box">
+      <h1 class="overpass"><a href="{% url 'posts:user_profile' username=post_user.username %}">
+        @{{post_user.username}}</a></h1>
+      <small>{{post_user.profile.bio|safe|linebreaksbr}}</small>
+    </div>
+
+    <div class="profile-options-box">
+      <a href="#">My threads</a>
+    </div>
+
+  </div>
+
+
+{% endblock %}
+
+{% block post_content %}
+  <div class="col-md-6">
+    {% for post in post_list  %}
+     {% include "posts/_post.html" %}
+     <p class="mini">
+       <a href="{% url 'groups:single' slug=post.group.slug %}">
+         <span class="fas fa-users icon mini"></span>
+         {{post.group.name}}
+       </a>
+    </div></div>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}

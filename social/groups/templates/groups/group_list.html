@@ -1,0 +1,43 @@
+{% extends 'groups/group_base.html' %}
+
+{% block pregroup %}
+<div class="col-md-8 threads">
+  <div class="main-heading">
+    <h1 class="overpass mb-1">Popular Threads</h1>
+    {% if user.is_authenticated %}
+      <a href="{% url 'groups:create_group' %}" class="btn btn-new-group">
+      New Thread</a>
+    {% endif %}
+  </div>
+{% endblock %}
+
+
+{% block group_content %}
+  {% for group in group_list  %}
+    <div class="group-card">
+      <a href="{% url 'groups:single' slug=group.slug %}">
+        <h2 class="list-group-title"> <span class="fas fa-users icon">
+        </span> {{ group.name }} </h2>
+      </a>
+      <div class="list-group-item-text">
+        {{ group.description_html|safe|linebreaksbr }}
+        <div class="row">
+          <div class="col-lg-3 col-xs-12">
+            <span class="badge badge-pill badge-secondary"> {{group.members.count}}</span>
+            <small>member{{group.members.count|pluralize}}</small>
+
+          </div>
+
+          <div class="col-lg-2 col-xs-12">
+            <span class="badge badge-pill badge-secondary"> {{group.posts.all.count}}</span>
+            <small>post{{group.posts.all.count|pluralize}}</small>
+          </div>
+        </div>
+        </div>
+    </div>
+  {% endfor %}
+
+
+  </div>
+
+{% endblock %}

@@ -1,0 +1,36 @@
+{% extends 'groups/group_base.html' %}
+{% load bootstrap4 %}
+
+{% block pregroup %}
+<div class="col-lg-4 col-sm-12 pt-1" style="border-right:1px solid rgb(120, 3, 139)">
+  <div class="row">
+    <div class="col-lg-9">
+      <h1 class="group-heading mr-3 overpass"> {{ group.name }} </h1>
+    </div>
+    <div class="col-lg-3 mt-2 pr-0">
+      {% if user in group.members.all %}
+        <a href="{% url 'groups:leave_group' slug=group.slug%}"
+        class="btn btn-outline-primary align-self-center ">
+        <span class="fas fa-user-minus mini"></span><small>Leave</small></a>
+      {% else %}
+        <a href="{% url 'groups:join_group' slug=group.slug%}"
+        class="btn btn-main-action align-self-center ">
+        <span class="fas fa-user-plus mini icon"></span><small>Join</small></a>
+      {% endif %}
+    </div>
+  </div>
+  <p><span class="fas fa-user-friends icon"></span>{{ group.members.count }}</p>
+  <p class="text-justify">{{group.description|safe|linebreaksbr}}</p>
+</div>
+{% endblock %}
+
+{% block group_content %}
+  <div class="col-md-6 pt-1">
+  {% for post in group.posts.all %}
+    {% include 'posts/_post.html' %}
+    </div></div>
+  {% empty %}
+    <h2>No posts yet</h2>
+  {% endfor %}
+  </div>
+{% endblock %}

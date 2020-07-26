@@ -1,0 +1,14 @@
+{% extends "groups/group_base.html" %}
+{% load bootstrap4 %}
+
+
+{% block pregroup %}
+  <div class="col-md-6">
+    <h2 class="overpass mb-4">Create new thread</h2>
+      <form class="regform" method="post">
+        {% csrf_token %}
+        {% bootstrap_form form %}
+        <input type="submit" class="btn btn-main-action" value="Create Thread">
+      </form>
+  </div>
+{% endblock %}

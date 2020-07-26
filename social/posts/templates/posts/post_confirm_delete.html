@@ -1,0 +1,22 @@
+{% extends "posts/post_base.html" %}
+
+{% block post_content %}
+<h2 class="overpass mb-5">Are you sure you want to delete this post?</h2>
+
+<div class="col-lg-6 pl-0">
+  {% include "posts/_post.html" with post=object hide_delete=True %}
+  </div></div>
+
+  <form method="post">
+  {% csrf_token %}
+    <input type="submit" class="btn btn-outline-light" value="Delete">
+    <a class="btn btn-dark ml-1"
+      href="{% url 'posts:user_profile' username=post.user.username %}">
+      Cancel
+    </a>
+  </form>
+</div>
+
+
+
+{% endblock %}

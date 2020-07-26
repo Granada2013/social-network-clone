@@ -1,5 +1,8 @@
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import render, redirect
 from django.urls import reverse
+from django.views.generic import UpdateView
+
 from .forms import UserSignUpForm, UserProfileForm
 
 
@@ -19,9 +22,12 @@ def signup(request):
             if 'profile_pic' in request.FILES:
                 profile.profile_pic = request.FILES['profile_pic']
             profile.save()
-            return redirect(reverse('login'))
+            return redirect(reverse('home'))
     else:
         auth_form = UserSignUpForm()
         profile_form = UserProfileForm()
     return render(request, template_name='accounts/signup.html', context={'auth_form': auth_form,
                                                                           'profile_form': profile_form})
+
+
+
