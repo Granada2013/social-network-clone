@@ -1,7 +1,5 @@
-from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import render, redirect
 from django.urls import reverse
-from django.views.generic import UpdateView
 
 from .forms import UserSignUpForm, UserProfileForm
 

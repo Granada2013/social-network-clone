@@ -28,9 +28,6 @@ a:hover{
   font-size: 0.9em;
 }
 
-hr{
-  border-top: 1px solid white;
-}
 
 /* NAVBAR */
 .navbar{
@@ -95,6 +92,10 @@ hr{
   font-size: 1.7em;
 }
 
+.list-group-title:hover{
+  color: rgb(21, 37, 189);
+}
+
 .btn-new-group{
   background-color: #090a94;
   color: white;
@@ -110,10 +111,10 @@ hr{
   color: white;
 }
 
-.main-heading{
-  margin-bottom: 3%;
+.my-badge{
+  background-color: rgb(120, 3, 139);
+  font-size: 0.85em;
 }
-
 
 /* USER PROFILE */
 .profile-box{
@@ -138,6 +139,17 @@ img{
   margin-bottom: 8%;
 }
 
-.profile-options-box{
+.profile-threads-box{
   text-align: left;
+}
+
+/* USER GROUP PAGE */
+
+.group-list-item{
+  color: white;
+  margin-top: 4%;
+}
+
+.group-list-item:hover{
+  color: rgb(21, 37, 189);
 }

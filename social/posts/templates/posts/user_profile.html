@@ -14,13 +14,14 @@
     </div>
 
     <div class="profile-info-box">
-      <h1 class="overpass"><a href="{% url 'posts:user_profile' username=post_user.username %}">
-        @{{post_user.username}}</a></h1>
+      <h1 class="overpass">@{{post_user.username}}</h1>
       <small>{{post_user.profile.bio|safe|linebreaksbr}}</small>
     </div>
 
-    <div class="profile-options-box">
-      <a href="#">My threads</a>
+    <div class="profile-threads-box">
+      <a href="{% url 'groups:user_groups' username=post_user.username %}">
+        My subscriptions:</a>
+        <span class="badge badge-pill my-badge">{{user_groups}}</span>
     </div>
 
   </div>

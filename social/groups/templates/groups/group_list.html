@@ -2,7 +2,7 @@
 
 {% block pregroup %}
 <div class="col-md-8 threads">
-  <div class="main-heading">
+  <div class="mb-3">
     <h1 class="overpass mb-1">Popular Threads</h1>
     {% if user.is_authenticated %}
       <a href="{% url 'groups:create_group' %}" class="btn btn-new-group">

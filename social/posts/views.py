@@ -32,6 +32,7 @@ class UserProfileView(generic.ListView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['post_user'] = self.post_user
+        context['user_groups'] = Group.objects.filter(members__in=[self.post_user]).count()
         return context
 
 
@@ -52,6 +53,9 @@ class EditProfileView(LoginRequiredMixin, UpdateView):
 
 
 class PostDetailView(generic.DetailView):
+    """
+    Renders post's details
+    """
     model = Post
     select_related = ('user', 'group')
 
@@ -79,6 +83,9 @@ class CreatePostView(LoginRequiredMixin, generic.CreateView):
 
 
 class DeletePostView(LoginRequiredMixin, generic.DeleteView):
+    """
+    Renders from to delete a post
+    """
     model = Post
     select_related = ('user', 'group')
 
