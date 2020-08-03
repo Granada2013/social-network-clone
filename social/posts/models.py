@@ -18,6 +18,7 @@ class Post(models.Model):
     created_at = models.DateTimeField(auto_now=True)
     message = models.TextField()
     message_html = models.TextField(editable=False)
+    image = models.ImageField(upload_to='images', blank=True)
     group = models.ForeignKey(Group, on_delete=models.CASCADE, related_name='posts')
 
     def __str__(self):

@@ -5,6 +5,7 @@ from django.urls import reverse_lazy, reverse
 from django.views import generic
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import UpdateView
+from .forms import NewPostForm
 
 from .models import Post
 from groups.models import Group
@@ -68,8 +69,8 @@ class CreatePostView(LoginRequiredMixin, generic.CreateView):
     """
     Renders a form to create new post
     """
-    fields = ('group', 'message')
-    model = Post
+    form_class = NewPostForm
+    template_name = 'posts/post_form.html'
 
     def get_success_url(self):
         group_id = self.request.POST['group']

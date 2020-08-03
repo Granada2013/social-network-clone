@@ -1,12 +1,11 @@
 {% extends "posts/post_base.html" %}
 {% load bootstrap4 %}
-{% load crispy_forms_tags %}
 
 
 {% block post_content %}
 <h1 class="overpass mb-4">New post</h1>
 <div class="col-md-6 pl-0">
-  <form class="regform" method="post">
+  <form class="regform" method="post" enctype="multipart/form-data">
     {% csrf_token %}
     {% bootstrap_form form %}
 

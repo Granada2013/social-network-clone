@@ -4,6 +4,10 @@
         @{{post.user.username}}
       </a>
     <h5 class="text-justify">{{post.message_html|safe}}</h5>
+    {% if post.image %}
+      <img class="post-img" src="{{post.image.url}}" alt="">
+    {% endif %}
+
 
 
     <div class="d-flex">
